@@ -1,5 +1,4 @@
-# Lab Info
-
+## Lab Info
 | Lab | Platform | Difficulty | Focus |
 | --- | --- | --- | --- |
 | MangoBleed | HackTheBox | Very Easy | DFIR |
