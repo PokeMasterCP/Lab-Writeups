@@ -1,4 +1,5 @@
 ## Lab Info
+
 | Lab | Platform | Difficulty | Focus |
 | --- | --- | --- | --- |
 | MangoBleed | HackTheBox | Very Easy | DFIR |
@@ -53,16 +54,25 @@ You have already collected a triage acquisition from the server using UAC. Perfo
 
 ## Timeline
 
-- 2025-12-29T05:25:52 UTC: The attacker started malicious connections against the MongoDB server.
-- 2025-12-29T05:40:03 UTC: The attacker gained remote access to the victim.
+- 2025-12-29 05:25:52 UTC: The attacker started malicious connections against the MongoDB server.
+- 2025-12-29 05:40:03 UTC: The attacker gained remote access to the victim over SSH as `mongoadmin`.
 - Timestamp unavailable: The attacker downloaded the `linpeas.sh` tool for host enumeration and privilege escalation.
 - Timestamp unavailable: The attacker exfiltrated the contents of `/var/lib/mongodb` via a Python web server.
 
 ## Indicators of Compromise
 
-**IP**
+**Network**
 
-65[.]0[.]76[.]43
+- `65[.]0[.]76[.]43` - attacker source IP
+
+**Accounts**
+
+- `mongoadmin` - account the attacker authenticated as over SSH
+
+**Files**
+
+- `linpeas.sh` - privilege-escalation enumeration script downloaded to the host
+- `/var/lib/mongodb` - MongoDB data directory archived and staged for exfiltration
 
 ## Summary of Incident
 

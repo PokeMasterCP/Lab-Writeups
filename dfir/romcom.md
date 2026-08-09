@@ -1,12 +1,15 @@
 ## Lab Info
+
 | Lab | Platform | Difficulty | Focus |
 | --- | --- | --- | --- |
 | RomCom | HackTheBox | Very Easy | DFIR |
 
 ## Scenario
+
 Susan works at the Research Lab in Forela International Hospital. A Microsoft Defender alert was received from her computer, and she also mentioned that while extracting a document from the received file, she received tons of errors, but the document opened just fine. According to the latest threat intel feeds, WinRAR is being exploited in the wild to gain initial access into networks, and WinRAR is one of the software programs the staff uses. You are a threat intelligence analyst with some background in DFIR. You have been provided a lightweight triage image to kick off the investigation while the SOC team sweeps the environment to find other attack indicators.
 
 ## Investigation Actions Taken
+
 1. Searching Google for WinRAR exploits associated with the RomCom threat group reveals it was [CVE-2025-8088](https://nvd.nist.gov/vuln/detail/CVE-2025-8088)
 
 2. Reviewing the NVD entry for this CVE reveals it is a path traversal vulnerability. A crafted archive uses alternate data streams to write files outside the directory the user selected, including into the user's Startup folder. Code execution follows from where the files land rather than from the extraction itself, which also explains the extraction errors Susan reported: the archive contains entries that WinRAR cannot write normally, so the visible document extracts fine while the traversal entries throw errors.
