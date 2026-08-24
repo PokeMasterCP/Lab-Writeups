@@ -18,6 +18,12 @@ The goal of this repository is to document repeatable methodology, explain the r
 | [RomCom](dfir/romcom.md) | Hack The Box | Very Easy | Windows triage | A malicious RAR exploits WinRAR path traversal (CVE-2025-8088) to write a backdoor and a Startup shortcut outside the extraction directory. |
 | [JetBrains](dfir/jetbrains.md) | CyberDefenders | Easy | Network forensics | TeamCity 2023.11.3 auth bypass (CVE-2024-27198) creates an admin account, uploads a plugin web shell, tampers with stored credentials, and attempts a container escape. |
 
+### Malware Analysis
+
+| Lab | Platform | Difficulty | Focus | Summary |
+| --- | --- | --- | --- | --- |
+| [Malicious VBA](malware_analysis/malicious_vba.md) | Hack The Box | Easy | Static malware analysis | Hex-encoded VBA strings reveal a staged payload download, disk write through `ADODB.Stream`, and WMI-based execution. |
+
 ## Repository structure
 
 Write-ups are grouped by discipline, one Markdown file per lab:
@@ -29,11 +35,14 @@ dfir/
   jetbrains.md
   mangobleed.md
   romcom.md
+malware_analysis/
+  template.md
+  malicious_vba.md
 ```
 
 ## Format
 
-Each write-up follows [`dfir/template.md`](dfir/template.md):
+Each write-up follows the template for its discipline, such as [`dfir/template.md`](dfir/template.md) or [`malware_analysis/template.md`](malware_analysis/template.md):
 
 - **Lab Info** - platform, difficulty, and focus area
 - **Scenario** - the platform's briefing, verbatim
@@ -42,3 +51,5 @@ Each write-up follows [`dfir/template.md`](dfir/template.md):
 - **Indicators of Compromise** - grouped and defanged, with MITRE ATT&CK mappings
 - **Summary of Incident** - initial access, actions taken, impact, detection, and what the evidence does not establish
 - **Remediation** - specific and mapped to the identified root cause
+
+Repository-aware editors follow [`AGENTS.md`](AGENTS.md), which limits assistance to clarity, consistency, formatting, defanging, and review while preserving the author's original analysis.
