@@ -54,13 +54,6 @@ Tools used:
 
     `Win32_Process` exposes a `Create` method, allowing the script to start the downloaded executable through WMI. This can make execution less obvious than launching the process directly from the Office application.
 
-## Timeline
-
-- Timestamp unavailable: An employee received the malicious document as an attachment to an invoice-themed email.
-- Timestamp unavailable: The embedded VBA was configured to decode a TinyURL address, download `dropped.exe`, save it through `ADODB.Stream`, and launch it through WMI.
-
-The supplied VBA source does not contain runtime timestamps, so the actual download and execution times cannot be established from this artifact alone.
-
 ## Indicators of Compromise
 
 **Network**
@@ -86,7 +79,7 @@ The supplied VBA source does not contain runtime timestamps, so the actual downl
 - `T1105` - Ingress Tool Transfer
 - `T1047` - Windows Management Instrumentation
 
-## Summary of Incident
+## Incident Assessment
 
 An employee received an invoice-themed email containing a suspicious macro-enabled document. Static analysis of the extracted VBA showed that the macro hides key strings as hexadecimal values and reconstructs them at runtime. Once decoded, the script is configured to contact `hxxps://tinyurl[.]com/g2z2gh6f` with an Internet Explorer 6 User-Agent, download a payload named `dropped.exe`, write the response to the temporary directory through `ADODB.Stream`, and execute it through the WMI `Win32_Process` class.
 
