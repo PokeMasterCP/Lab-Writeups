@@ -23,12 +23,23 @@ The goal of this repository is to document repeatable methodology, explain the r
 | [MangoBleed](dfir/mangobleed.md) | Hack The Box | Very Easy | Linux triage | MongoDB 8.0.16 exposed to CVE-2025-14847; connection floods followed by SSH reuse of `mongoadmin`, LinPEAS enumeration, and suspected database exfiltration. |
 | [RomCom](dfir/romcom.md) | Hack The Box | Very Easy | Windows triage | A malicious RAR exploits WinRAR path traversal (CVE-2025-8088) to write a backdoor and a Startup shortcut outside the extraction directory. |
 | [JetBrains](dfir/jetbrains.md) | CyberDefenders | Easy | Network forensics | TeamCity 2023.11.3 auth bypass (CVE-2024-27198) creates an admin account, uploads a plugin web shell, tampers with stored credentials, and attempts a container escape. |
+| [Phishing Email](dfir/phishing_email.md) | Hack The Box | Very Easy | Phishing investigation | Email header and body review identifies a PayPal impersonation message, its sender IP, and a suspicious link on `storage[.]googleapis[.]com`. |
 
 ### Offensive Security
 
 | Lab | Platform | Difficulty | Focus | Summary |
 | --- | --- | --- | --- | --- |
 | [Nexus](offensive_security/nexus.md) | Hack The Box | Easy | Web exploitation and Linux privilege escalation | Reused credentials and an authenticated Krayin file-upload flaw provide the foothold; a Gitea template-sync path traversal leads to root. |
+
+## Starting a new write-up
+
+Copy a starter template into the matching workflow folder and replace its prompts with your own notes:
+
+- [Blue Team template](templates/blue_team.md)
+- [DFIR template](templates/dfir.md)
+- [Offensive Security template](templates/offensive_security.md)
+
+See the [template guide](templates/README.md) for section selection, defanging, and publication checks.
 
 ## Repository structure
 
@@ -41,7 +52,13 @@ dfir/
   bft.md
   jetbrains.md
   mangobleed.md
+  phishing_email.md
   romcom.md
 offensive_security/
   nexus.md
+templates/
+  README.md
+  blue_team.md
+  dfir.md
+  offensive_security.md
 ```
