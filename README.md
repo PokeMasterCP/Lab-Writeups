@@ -24,6 +24,7 @@ The goal of this repository is to document repeatable methodology, explain the r
 | [RomCom](dfir/romcom.md) | Hack The Box | Very Easy | Windows triage | A malicious RAR exploits WinRAR path traversal (CVE-2025-8088) to write a backdoor and a Startup shortcut outside the extraction directory. |
 | [JetBrains](dfir/jetbrains.md) | CyberDefenders | Easy | Network forensics | TeamCity 2023.11.3 auth bypass (CVE-2024-27198) creates an admin account, uploads a plugin web shell, tampers with stored credentials, and attempts a container escape. |
 | [Phishing Email](dfir/phishing_email.md) | Hack The Box | Very Easy | Phishing investigation | Email header and body review identifies a PayPal impersonation message, its sender IP, and a suspicious link on `storage[.]googleapis[.]com`. |
+| [Operation Blackout 2025: Phantom Check](dfir/operation_blackout_2025_phantom_check.md) | Hack The Box | Very Easy | Windows event log analysis and virtualization detection | PowerShell logs show WMI queries, registry checks, and process comparisons used for virtualization detection. |
 
 ### Offensive Security
 
@@ -52,6 +53,7 @@ dfir/
   bft.md
   jetbrains.md
   mangobleed.md
+  operation_blackout_2025_phantom_check.md
   phishing_email.md
   romcom.md
 offensive_security/
